@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Mood</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/variable/woff2/SUIT-Variable.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="wrap">
+      <!--wheater-->
+      <div class="weatherSide">
+        <!--info header-->
+        <div class="infoHeader">
+          <div>
+            <div id="cityName">SEOUL</div>
+            <div>
+              <span>Update</span>
+              <span id="time">00:00</span>
+            </div>
+          </div>
+          <div>
+            <input id="user" />
+            <button id="search">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
+        </div>
+
+        <!--main info-->
+        <div class="mainInfo">
+          <div>
+            <div class="feelsWrap">
+              <span>체감</span>
+              <span id="feels">11</span>
+            </div>
+            <div id="weatherText">추움</div>
+          </div>
+          <div id="temp">23</div>
+        </div>
+
+        <!--chart-->
+        <canvas id="weatherChart"></canvas>
+      </div>
+
+      <!--player-->
+      <div class="playerSide">
+        <h1>
+          <span>MOOD</span><br />
+          OF THE DAY
+        </h1>
+        <!--player-->
+        <div class="playerWrap">
+          <!--cdplayer-->
+          <div class="player">
+            <div class="cd">
+              <div class="cdLine">
+                <div class="innerCircle">
+                  <div class="center"></div>
+                </div>
+              </div>
+            </div>
+            <!--playinfo-->
+            <div class="playInfo">
+              <div class="text">
+                <i class="fa-solid fa-play"></i>
+                <h4>지금 재생 중</h4>
+              </div>
+              <div>쌀쌀한 날씨엔 이런 팝송...</div>
+            </div>
+          </div>
+          <div class="playerLine">
+            <div class="line"></div>
+            <div class="handle"></div>
+          </div>
+        </div>
+        <!--btnWrap-->
+        <div class="btnWrap">
+          <button onclick="weather('seoul')">서울</button>
+          <button onclick="weather('busan')">부산</button>
+          <button onclick="weather('daejeon')">대전</button>
+          <button onclick="weather('jeju')">제주</button>
+          <button onclick="getLocation()">현재위치</button>
+        </div>
+      </div>
+      <div id="hiddenPlayer"></div>
+    </div>
+    <script src="js/custom.js"></script>
+  </body>
+</html>

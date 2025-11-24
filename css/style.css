@@ -1,0 +1,296 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+ul {
+  list-style: none;
+}
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+@font-face {
+  font-family: "PeopleFirstTtobaks";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/2406-2@1.0/PeoplefirstNeatLoudTTF.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-display: swap;
+}
+/*wrap*/
+.wrap {
+  width: 100%;
+  height: 100vh;
+  padding: 30px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  background: linear-gradient(to bottom, #c1bbaf, #d4d1ca);
+  font-family: "SUIT Variable", sans-serif;
+}
+
+/*weatherSide*/
+.weatherSide {
+  background: linear-gradient(#b3cbff, #f4eeff);
+  border-radius: 30px;
+  border: 20px solid #866848;
+  padding: 30px;
+  box-sizing: border-box;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: rgb(149, 149, 150) 3px 3px 6px 0px inset,
+    rgba(192, 192, 192, 0.5) -3px -3px 6px 1px inset;
+}
+
+/*infoHeader*/
+.infoHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.3rem;
+}
+#cityName {
+  font-size: 4rem;
+  font-weight: 900;
+  letter-spacing: -2px;
+}
+
+/*mainInfo*/
+.mainInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.feelsWrap {
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+#temp {
+  font-size: 8rem;
+  font-weight: 900;
+}
+
+/*chart*/
+.chart {
+  width: 100%;
+  height: 35%;
+  border-top: 1px solid #ccc;
+}
+
+/*playerSide*/
+.playerSide {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+/*h1*/
+.playerSide h1 {
+  color: #81251e;
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: -1px;
+  margin-bottom: 20px;
+}
+.playerSide h1 span {
+  font-size: 5rem;
+  line-height: 1;
+}
+
+/*player*/
+.playerWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  height: 520px;
+}
+/*player*/
+.playerWrap .player {
+  width: 300px;
+  height: 300px;
+  background-color: #acaaaf;
+  border-radius: 20px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.playerWrap .cd {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background: linear-gradient(#7c8bc8, #9da9da, #7c8bc8);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  animation: spin 0.1s infinite linear;
+  animation-play-state: paused;
+}
+.playerWrap .cd.active {
+  animation-play-state: running;
+}
+.playerWrap .cd div {
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+.playerWrap .cdLine {
+  width: 80px;
+  height: 80px;
+  background-color: #1e7781;
+  border: 3px solid #0099d0;
+}
+.playerWrap .innerCircle {
+  width: 66px;
+  height: 66px;
+  background-color: #1e7781;
+}
+.playerWrap .center {
+  width: 16px;
+  height: 16px;
+  background-color: #acaaaf;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*playerLine*/
+.playerWrap .playerLine {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  z-index: 0;
+  position: absolute;
+  top: 280px;
+}
+
+.playerWrap .line {
+  width: 1px;
+  height: 150px;
+  background-color: #333;
+}
+.playerWrap .line.ani {
+  animation: on 0.4s;
+}
+@keyframes on {
+  0% {
+    height: 150px;
+  }
+  30% {
+    height: 220px;
+  }
+  100% {
+    height: 150px;
+  }
+}
+.playerWrap .handle {
+  width: 14px;
+  height: 14px;
+  background-color: transparent;
+  border: 10px solid #333;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*playInfo*/
+.playInfo {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  position: absolute;
+  z-index: 30;
+  right: -20%;
+  bottom: 20%;
+  display: none;
+}
+.playInfo.on {
+  display: block;
+}
+.playInfo .text {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+/*btnWrap*/
+.btnWrap {
+  width: 150px;
+  height: 220px;
+  background-color: #eae6e2;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  bottom: 0;
+  left: 100px;
+  padding: 40px 0px 20px;
+  box-sizing: border-box;
+}
+.btnWrap::before {
+  content: "";
+  width: 30px;
+  height: 50px;
+  background-color: #b1a28e;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(20deg);
+}
+
+.btnWrap button {
+  width: 40%;
+  font-family: "PeopleFirstTtobaks";
+  color: #555;
+  font-size: 1.3rem;
+}
+.btnWrap button.on {
+  color: #000;
+  background: linear-gradient(
+    to top,
+    rgba(224, 172, 105, 0.6) 50%,
+    transparent 70%
+  );
+}
+.btnWrap button:hover {
+  color: #000;
+}
+
+#hiddenPlayer {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  top: -9999px;
+  left: -9999px;
+  opacity: 0;
+}

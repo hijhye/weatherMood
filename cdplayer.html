@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .playerWrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .playerWrap .player {
+        width: 250px;
+        height: 300px;
+        background-color: #d9d9d9;
+        border: 3px solid #d1d1d1;
+        border-radius: 20px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
+          rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+      }
+
+      .playerWrap .cd {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+        background: linear-gradient(rgb(157, 255, 201), rgb(255, 224, 47));
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+          rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+        animation: spin 0.1s infinite linear;
+        animation-play-state: paused;
+      }
+      .playerWrap .cd.active {
+        animation-play-state: running;
+      }
+      .playerWrap .cd div {
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+      }
+      .playerWrap .cdLine {
+        width: 80px;
+        height: 80px;
+        background-color: #ff5c45;
+        border: 3px solid #fae93a;
+      }
+      .playerWrap .innerCircle {
+        width: 66px;
+        height: 66px;
+        background-color: #fae93a;
+      }
+      .playerWrap .center {
+        width: 16px;
+        height: 16px;
+        background-color: #353535;
+      }
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      .playerWrap .playerLine {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: grab;
+        margin-top: -20px;
+        position: relative;
+        z-index: 0;
+      }
+      .playerWrap .playerLine:active {
+        cursor: grabbing;
+      }
+      .playerWrap .line {
+        width: 1px;
+        height: 150px;
+        background-color: #333;
+        transition: height 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+      .playerWrap .line.pulling {
+        transition: none;
+      }
+      .playerWrap .handle {
+        width: 40px;
+        height: 40px;
+        background-color: #d9d9d9;
+        border: 1px solid #333;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .playerWrap .handle div {
+        width: 14px;
+        height: 14px;
+        background-color: #fff;
+        border: 1px solid #333;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="playerWrap">
+      <div class="player">
+        <div class="cd">
+          <div class="cdLine">
+            <div class="innerCircle">
+              <div class="center"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="playerLine">
+        <div class="line"></div>
+        <div class="handle">
+          <div></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      //cd player
+      const playerLineWrap = document.querySelector(".playerLine");
+      const line = document.querySelector(".line");
+      const cd = document.querySelector(".cd");
+
+      let drag = false;
+      let startY = 0;
+
+      // 잡았을 때
+      playerLineWrap.addEventListener("mousedown", (e) => {
+        drag = true;
+        startY = e.clientY;
+        line.classList.add("pulling");
+      });
+
+      // 움직일 때
+      window.addEventListener("mousemove", (e) => {
+        if (!drag) return;
+        let gap = e.clientY - startY;
+        if (gap > 0 && gap < 100) {
+          line.style.height = 150 + gap + "px";
+        }
+      });
+
+      // 놓았을 때
+      window.addEventListener("mouseup", (e) => {
+        if (!drag) return;
+        drag = false;
+
+        line.classList.remove("pulling");
+        line.style.height = "150px";
+
+        if (e.clientY - startY > 50) {
+          cd.classList.toggle("active");
+        }
+      });
+    </script>
+  </body>
+</html>

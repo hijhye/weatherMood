@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Mood Slider</title>
+        <style>
+          * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+          }
+
+          /* .wrap의 배경은 삭제! (뒤가 보여야 하니까요) */
+          .wrap {
+            width: 100%;
+            height: 100vh;
+            position: relative; /* 자식 요소 정렬 기준 */
+          }
+
+          /* 여기에 '딸기우유 그라데이션'을 넣어야 합니다 */
+          .bg-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* 제일 뒤로 보내기 */
+
+            /* ▼▼▼ 님이 원하시던 그 색상을 여기에! ▼▼▼ */
+            background: linear-gradient(to bottom, #fff5f5, #ffffff);
+
+            transition: filter 0.1s; /* 부드럽게 변환 */
+          }
+
+          /* 컨트롤 박스 스타일 */
+          .current {
+            padding: 20px;
+          }
+
+          /* 슬라이더 컨테이너 */
+          .mood-control {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-family: sans-serif;
+            color: #555; /* 글씨색 은은하게 */
+            font-weight: 600;
+          }
+
+          /* 슬라이더 트랙 (막대기) - 얇고 깔끔하게 */
+          #moodSlider {
+            -webkit-appearance: none; /* 기본 스타일 제거 */
+            width: 100px;
+            height: 4px; /* 아주 얇은 선 */
+            background: #d1d1d1; /* 은은한 회색 */
+            border-radius: 2px;
+            outline: none;
+            cursor: pointer;
+          }
+
+          /* 슬라이더 손잡이 (동그라미) - 매트한 진회색 */
+          #moodSlider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #444; /* LP판 센터나 텍스트랑 색 맞춤 */
+            cursor: pointer;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); /* 살짝 그림자 */
+            transition: transform 0.1s;
+          }
+
+          /* 마우스 올렸을 때 반응 */
+          #moodSlider::-webkit-slider-thumb:hover {
+            transform: scale(1.2); /* 살짝 커짐 */
+            background: #222;
+          }
+        </style>
+      </head>
+      <body>
+        <div class="wrap">
+          <div class="bg-layer"></div>
+
+          <div class="current">
+            <div class="mood-control">
+              <label>🎨 MOOD</label>
+              <input type="range" id="moodSlider" min="0" max="360" value="0" />
+            </div>
+          </div>
+        </div>
+
+        <script>
+          const moodSlider = document.getElementById("moodSlider");
+          const bgLayer = document.querySelector(".bg-layer");
+
+          moodSlider.addEventListener("input", (e) => {
+            const degree = e.target.value;
+            // 배경 레이어에만 색조 회전 필터를 먹입니다
+            bgLayer.style.filter = `hue-rotate(${degree}deg)`;
+          });
+        </script>
+      </body>
+    </html>
+  </head>
+</html>
