@@ -232,7 +232,7 @@ citybtns.forEach((citybtn) => {
 const weatherDatabase = {
   // 01: 맑음
   "01": {
-    color: "#ffc60bff",
+    color: "#34a4ffff",
     music: {
       comment: "산책하기 좋은날엔🌿 적당히 신나는 청량 플리",
       id: "fj8ReY0HxWc",
@@ -240,7 +240,7 @@ const weatherDatabase = {
   },
   // 02: 구름 조금
   "02": {
-    color: "#91b7c9ff",
+    color: "#0e587aff",
     music: {
       comment: "구름이 예쁜 어느 날, 무조건 나가서 듣는 맑고 청량한 플리! ☁️",
       id: "mL73nLwU4t4",
@@ -248,7 +248,7 @@ const weatherDatabase = {
   },
   // 03: 흐림
   "03": {
-    color: "#607070ff",
+    color: "#055757ff",
     music: {
       comment:
         "[cafe playlist] 흐린날 망원동 카페에서 커피 한 잔 하는 감성 플리",
@@ -257,7 +257,7 @@ const weatherDatabase = {
   },
   // 04: 짙은 구름
   "04": {
-    color: "#5f6a7eff",
+    color: "#292e38ff",
     music: {
       comment: "[𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭] “흐린 날, 괜히 조용한 노래들” ☁️💿",
       id: "GcFw-rWPhOk",
@@ -265,7 +265,7 @@ const weatherDatabase = {
   },
   // 09: 소나기
   "09": {
-    color: "#1b4781ff",
+    color: "#e0ffa6ff",
     music: {
       comment: "우리의 추억도 소나기처럼 내려와☂ ㅣ 비 오는 날 듣기 좋은 노래",
       id: "IZR5DJgjcnI",
@@ -273,7 +273,7 @@ const weatherDatabase = {
   },
   // 10: 비
   10: {
-    color: "#4778d4ff",
+    color: "#d4a7f8ff",
     music: {
       comment: "히사이시 조의 비 오는 여름 작업실ㅣ🎥 𝟰𝗸 𝐩𝐥𝐚𝐲𝐥𝐢𝐬𝐭",
       id: "GzewUFCzpVg",
@@ -281,7 +281,7 @@ const weatherDatabase = {
   },
   // 11: 천둥번개
   11: {
-    color: "#4c1f69ff",
+    color: "#ff50f6ff",
     music: {
       comment: "[𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭] 하트시그널만의 폭우 속 감성 플리 ☔️",
       id: "_9kHNG7mcCI",
@@ -289,7 +289,7 @@ const weatherDatabase = {
   },
   // 13: 눈
   13: {
-    color: "#3592b8ff",
+    color: "#cdf1ffff",
     music: {
       comment: "[Playlist] 눈이 내린다. 밤의 끝이 하얘졌다.",
       id: "=4Ei4dHzLiDE",
