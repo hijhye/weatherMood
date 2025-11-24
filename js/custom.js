@@ -88,9 +88,17 @@ function renderText(weatherData) {
   console.log(weatherData);
   date = new Date(weatherData.dt * 1000);
   cityName.textContent = `${weatherData.name}`;
-  time.textContent = `${date.toLocaleString("ko-KR").slice(14, 22)}`;
+  time.textContent = timeHour();
   feels.textContent = `${Math.round(weatherData.main.feels_like)}º`;
   temp.textContent = `${Math.round(weatherData.main.temp)}º`;
+
+  function timeHour() {
+    if (date.toLocaleString("ko-KR").slice(16, 18) < 10) {
+      return `${date.toLocaleString("ko-KR").slice(13, 16)} 0${date
+        .toLocaleString("ko-KR")
+        .slice(17, 21)}`;
+    }
+  }
 
   //weatherText
   let description = "";
