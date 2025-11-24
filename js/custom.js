@@ -331,10 +331,17 @@ function renderMusic(weatherData) {
   };
 
   // 5. CD 색상(디자인) 업데이트
-  const themeColor = isNight ? data.color.night : data.color.day;
+  const themeColor = data.color;
   const cdElement = document.querySelector(".cd");
 
-  cdElement.style.background = `linear-gradient(135deg, ${themeColor}, #ffffff 90%)`;
+  if (isNight) {
+    color = `linear-gradient(135deg, ${themeColor}, #15181fff 90%)`;
+  } else {
+    color = `linear-gradient(135deg, ${themeColor}, #dae7ffff 90%)`;
+  }
+
+  cdElement.style.background = color;
+
   document.querySelector(".innerCircle").style.backgroundColor = themeColor;
 
   // 6. 날씨가 바뀌면 재생 중이던 음악 끄고 초기화
