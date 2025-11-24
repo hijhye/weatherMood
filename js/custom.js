@@ -1,5 +1,5 @@
 //오픈웨더
-let APIkey = "f92423c1531be5500e6441faa4aa1cd4";
+let APIkey = "96748635082c4a335a4c3e2e75abcb35";
 
 //현재위치
 let lat;
@@ -232,7 +232,7 @@ citybtns.forEach((citybtn) => {
 const weatherDatabase = {
   // 01: 맑음
   "01": {
-    color: { day: "#E0AC69", night: "#4A4E69" },
+    color: "#ffc60bff",
     music: {
       comment: "산책하기 좋은날엔🌿 적당히 신나는 청량 플리",
       id: "fj8ReY0HxWc",
@@ -240,7 +240,7 @@ const weatherDatabase = {
   },
   // 02: 구름 조금
   "02": {
-    color: { day: "#A5A58D", night: "#4A4E69" },
+    color: "#91b7c9ff",
     music: {
       comment: "구름이 예쁜 어느 날, 무조건 나가서 듣는 맑고 청량한 플리! ☁️",
       id: "mL73nLwU4t4",
@@ -248,7 +248,7 @@ const weatherDatabase = {
   },
   // 03: 흐림
   "03": {
-    color: { day: "#A5A58D", night: "#4A4E69" },
+    color: "#607070ff",
     music: {
       comment:
         "[cafe playlist] 흐린날 망원동 카페에서 커피 한 잔 하는 감성 플리",
@@ -257,7 +257,7 @@ const weatherDatabase = {
   },
   // 04: 짙은 구름
   "04": {
-    color: { day: "#8D99AE", night: "#6B705C" },
+    color: "#5f6a7eff",
     music: {
       comment: "[𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭] “흐린 날, 괜히 조용한 노래들” ☁️💿",
       id: "GcFw-rWPhOk",
@@ -265,7 +265,7 @@ const weatherDatabase = {
   },
   // 09: 소나기
   "09": {
-    color: { day: "#778DA9", night: "#1B263B" },
+    color: "#1b4781ff",
     music: {
       comment: "우리의 추억도 소나기처럼 내려와☂ ㅣ 비 오는 날 듣기 좋은 노래",
       id: "IZR5DJgjcnI",
@@ -273,7 +273,7 @@ const weatherDatabase = {
   },
   // 10: 비
   10: {
-    color: { day: "#778DA9", night: "#1B263B" },
+    color: "#4778d4ff",
     music: {
       comment: "히사이시 조의 비 오는 여름 작업실ㅣ🎥 𝟰𝗸 𝐩𝐥𝐚𝐲𝐥𝐢𝐬𝐭",
       id: "GzewUFCzpVg",
@@ -281,7 +281,7 @@ const weatherDatabase = {
   },
   // 11: 천둥번개
   11: {
-    color: { day: "#6D597A", night: "#22223B" },
+    color: "#4c1f69ff",
     music: {
       comment: "[𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭] 하트시그널만의 폭우 속 감성 플리 ☔️",
       id: "_9kHNG7mcCI",
@@ -289,7 +289,7 @@ const weatherDatabase = {
   },
   // 13: 눈
   13: {
-    color: { day: "#F4F1DE", night: "#E0E1DD" },
+    color: "#3592b8ff",
     music: {
       comment: "[Playlist] 눈이 내린다. 밤의 끝이 하얘졌다.",
       id: "=4Ei4dHzLiDE",
@@ -297,15 +297,15 @@ const weatherDatabase = {
   },
   // 50: 안개
   50: {
-    color: { day: "#B7B7A4", night: "#415A77" },
+    color: "#f7f6bdff",
     music: {
       comment: "[Playlist] 안개 낀 숲 속의 공기",
       id: "a2es9iKEvqE",
     },
   },
 };
-// 2. 전역 변수
-let currentVideoId = ""; // 현재 날씨에 맞는 유튜브 ID 저장용
+
+let currentVideoId = ""; //
 
 // 3. 메인 렌더링 함수 (UI 변경 & 재생 준비)
 function renderMusic(weatherData) {
@@ -317,7 +317,6 @@ function renderMusic(weatherData) {
   // 2. DB에서 데이터 찾기
   const data = weatherDatabase[codeNum] || weatherDatabase["01"];
 
-  // 3. ★ 핵심 수정: URL 변환 과정 없이 ID를 바로 저장!
   currentVideoId = data.music.id;
 
   // 4. 화면 텍스트 업데이트
@@ -326,12 +325,7 @@ function renderMusic(weatherData) {
 
   // 설명: 유튜브 제목
   playInfoDesc.textContent = data.music.comment;
-  playInfoDesc.style.fontSize = "0.9rem";
-  playInfoDesc.style.lineHeight = "1.4";
-  playInfoDesc.style.wordBreak = "keep-all";
 
-  // (옵션) 클릭하면 새 창으로 유튜브 영상 띄우기
-  playInfo.style.cursor = "pointer";
   playInfo.onclick = function () {
     window.open(`https://www.youtube.com/watch?v=${currentVideoId}`, "_blank");
   };
@@ -352,16 +346,12 @@ function renderMusic(weatherData) {
 
 // 4. 이벤트 리스너 (줄 당기기 -> 음악 재생/정지)
 playerLine.addEventListener("click", () => {
-  // 애니메이션 리셋
   line.classList.remove("ani");
   line.offsetWidth;
   line.classList.add("ani");
-
-  // CD 회전 상태 토글
   cd.classList.toggle("active");
 
   const hiddenPlayer = document.querySelector("#hiddenPlayer");
-
   // [상태 A] CD가 돌기 시작함 -> 음악 재생
   if (cd.classList.contains("active")) {
     if (currentVideoId) {
@@ -372,8 +362,6 @@ playerLine.addEventListener("click", () => {
           allow="autoplay" 
           style="display:none">
         </iframe>`;
-    } else {
-      alert("재생할 음악 정보가 없어요!");
     }
   }
   // [상태 B] CD가 멈춤 -> 음악 끄기
