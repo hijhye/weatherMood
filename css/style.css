@@ -60,6 +60,10 @@ button {
   font-weight: 900;
   letter-spacing: -2px;
 }
+.search {
+  display: flex;
+  gap: 10px;
+}
 
 /*mainInfo*/
 .mainInfo {

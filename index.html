@@ -22,6 +22,12 @@
       href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/variable/woff2/SUIT-Variable.css"
       rel="stylesheet"
     />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
     <div class="wrap">
@@ -36,9 +42,15 @@
               <span id="time">00:00</span>
             </div>
           </div>
-          <div>
-            <input id="user" />
-            <button id="search">
+          <div class="search">
+            <input
+              id="user"
+              class="form-control form-control-lg"
+              type="text"
+              placeholder="도시명을 검색해보세요."
+              aria-label=".form-control-lg example"
+            />
+            <button id="search" type="button" class="btn btn-light">
               <i class="fa-solid fa-magnifying-glass"></i>
             </button>
           </div>
@@ -102,6 +114,11 @@
       </div>
       <div id="hiddenPlayer"></div>
     </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
     <script src="js/custom.js"></script>
   </body>
 </html>
